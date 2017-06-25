@@ -21,6 +21,11 @@ buildConfig {
     appName = project.name
     packageName = project.group
     clsName = 'BuildConfig'
+
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    buildConfigField 'String', 'SLACK_TOKEN', properties.getProperty("slackToken", null)
+    buildConfigField 'String', 'SLACK_CHANNEL_NAME', properties.getProperty("slackChannelName", null)
 }
 
 repositories {

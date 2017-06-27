@@ -1,6 +1,8 @@
 package jp.co.fablic.spikot
 
 import com.github.kittinunf.fuel.Fuel
+import kotlinx.coroutines.experimental.CommonPool
+import kotlinx.coroutines.experimental.launch
 import java.util.logging.Logger
 
 class SlackNotifier {
@@ -24,7 +26,9 @@ class SlackNotifier {
     }
 
     private fun postMessage(parameters: List<Pair<String, Any>>) {
-        val (_, _, result) = Fuel.post(url, parameters).responseString()
-        logger.info("[spikot] Posted a message to Slack. result: " + result)
+        launch(CommonPool) {
+            val (_, _, result) = Fuel.post(url, parameters).responseString()
+            logger.info("[spikot] Posted a message to Slack. result: " + result)
+        }
     }
 }

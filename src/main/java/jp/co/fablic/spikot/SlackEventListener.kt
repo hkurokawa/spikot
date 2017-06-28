@@ -6,25 +6,26 @@ import org.bukkit.event.entity.PlayerDeathEvent
 import org.bukkit.event.player.AsyncPlayerChatEvent
 import org.bukkit.event.player.PlayerJoinEvent
 import org.bukkit.event.player.PlayerQuitEvent
+import jp.co.fablic.spikot.dynamic.Benri
 
 class SlackEventListener : Listener {
     @EventHandler
     fun onPlayerJoinEvent(event: PlayerJoinEvent) {
-        SlackNotifier().postMessage(event.joinMessage, "#ace639")
+        Benri.onPlayerJoinEvent(event);
     }
 
     @EventHandler
     fun onPlayerQuitEvent(event: PlayerQuitEvent) {
-        SlackNotifier().postMessage(event.quitMessage, "#69b4c8")
+        Benri.onPlayerQuitEvent(event);
     }
 
     @EventHandler
     fun onPlayerDeathEvent(event: PlayerDeathEvent) {
-        SlackNotifier().postMessage(event.deathMessage, "#ff8066")
+        Benri.onPlayerDeathEvent(event);
     }
 
     @EventHandler
     fun onAsyncPlayerChatEvent(event: AsyncPlayerChatEvent) {
-        SlackNotifier().postMessage(String.format(event.format, event.player.displayName, event.message))
+      Benri.onAsyncPlayerChatEvent(event);
     }
 }

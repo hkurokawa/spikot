@@ -40,3 +40,8 @@ jobs:
         
       # run tests!
       - run: gradle test
+
+      - run: gradle assemble
+
+      - store_artifacts:
+          path: /build/libs/*.jar

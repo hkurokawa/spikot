@@ -23,9 +23,11 @@ buildConfig {
     clsName = 'BuildConfig'
 
     Properties properties = new Properties()
-    properties.load(project.rootProject.file('local.properties').newDataInputStream())
-    buildConfigField 'String', 'SLACK_TOKEN', properties.getProperty("slackToken", null)
-    buildConfigField 'String', 'SLACK_CHANNEL_NAME', properties.getProperty("slackChannelName", null)
+    File file = project.rootProject.file('local.properties')
+    if (file.exists())
+        properties.load(file.newDataInputStream())
+    buildConfigField 'String', 'SLACK_TOKEN', properties.getProperty("slackToken", "${System.env.SLACK_TOKEN}")
+    buildConfigField 'String', 'SLACK_CHANNEL_NAME', properties.getProperty("slackChannelName", "${System.env.SLACK_CHANNEL_NAME}")
 }
 
 kotlin {

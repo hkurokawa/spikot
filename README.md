@@ -2,9 +2,4 @@
 Spigot plugin in Kotlin
 
 ## Setup
-Put `local.properties` under the root directory as below.
-
-```local.properties
-slackToken=[your slack token]
-slackChannelName=[your slack channel]
-```
+Set `SLACK_TOKEN` and `SLACK_CHANNEL_NAME` environmental Variables when running the plugin.

@@ -41,6 +41,9 @@ jobs:
       # run tests!
       - run: gradle test
 
+      - store_test_results:
+          path: build/test-results/junit-platform
+
       - run: gradle assemble
 
       - store_artifacts:

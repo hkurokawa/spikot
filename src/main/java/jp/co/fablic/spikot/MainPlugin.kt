@@ -6,6 +6,7 @@ class MainPlugin : JavaPlugin() {
     override fun onEnable() {
         SlackNotifier().postMessage("Server launched.", "#cccccc")
         server.pluginManager.registerEvents(SlackEventListener(), this)
+        server.pluginManager.registerEvents(Kickory(), this)
     }
 
     override fun onDisable() {

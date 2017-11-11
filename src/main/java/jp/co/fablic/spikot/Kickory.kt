@@ -1,4 +1,4 @@
-package src.main.java.jp.co.fablic.spikot
+package jp.co.fablic.spikot
 
 import org.bukkit.Material
 import org.bukkit.event.EventHandler

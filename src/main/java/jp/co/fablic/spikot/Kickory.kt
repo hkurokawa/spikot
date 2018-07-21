@@ -6,6 +6,7 @@ import org.bukkit.event.Listener
 import org.bukkit.event.block.BlockBreakEvent
 
 class Kickory : Listener {
+    /*
     @EventHandler
     fun BlockBreakEvent(event: BlockBreakEvent) {
         val woodlog = event.getBlock()
@@ -16,4 +17,5 @@ class Kickory : Listener {
         // TODO
         event.getPlayer().sendMessage("[Kickory] You cut a block of log")
     }
+    */
 }
